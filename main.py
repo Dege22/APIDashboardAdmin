@@ -155,3 +155,8 @@ def finish_contact(session_id: Optional[str] = Cookie(None)):
         return {"message": "Session finished successfully"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))  # Pega a porta da variável de ambiente ou usa a porta 8000 como padrão
+    uvicorn.run(app, host="0.0.0.0", port=port)
